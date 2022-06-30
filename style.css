@@ -1,0 +1,55 @@
+body{
+    background-image: url(/asset/ball.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: move 80s linear infinite;
+}
+@keyframes move {
+    0%{transform: scale(0px);
+        background-image: url(/asset/w1.webp);
+    }
+    20%{transform: scale(20px);
+        background-image: url(/asset/pexels-brett-sayles-912364.jpg);
+    }
+    40%{transform: scale(40px);
+        background-image: url(/asset/pexels-ithalu-dominguez-907485.jpg);
+    }
+    60%{transform: scale(60px);
+        background-image: url(/asset/pexels-pixabay-531756.jpg);
+    }
+    80%{transform: scale(80px);
+        background-image: url(/asset/w2.jfif);
+    }
+    100%{transform: scale(100px);
+        background-image: url(/asset/pexels-tahir-shaw-186980.jpg);
+    }
+}
+#humco{
+
+background: rgba(255, 255, 255, 0.3);
+border-radius: 20px;
+box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+#weather{
+
+    font-size: 70px;
+}
+
+#dep{
+    transform-origin: 0.0;
+    transform: rotate(270deg);
+    margin-left: 20px;
+    
+    
+}
+#dep2{
+    transform-origin: 0.0;
+    transform: rotate(270deg);
+    margin-left: 20px;
+    margin-top: -320PX;
+    
+    
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather App</title>
+    <link rel="stylesheet" href="/bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body onload="getLocation()">
+    <section class="col-12 ">
+        <h1 style="color:rgb(38, 38, 90);" class="d-flex justify-content-center pt-4 ">Weather App</h1>
+        <div class="d-flex mx-auto col-lg-3  col-md-3 col-sm-6  py-3 justify-content-center">
+            <input class="form-control p-3 ms-3  " type="text" id="getplace" placeholder="Enter Your location">
+        <button class="btn btn-info ms-2 me-2" onclick="getData()">search</button>
+        </div>
+        
+        <div class="ps-5 mt-3  ">
+            <p class="ps-5 h5 py-2" id="country"></p>
+        <p class="ps-5 h5 py-2" id="named"></p>
+        <p class="ps-5 py-2" id="weather"></p>
+        </div>
+        <img id="dep2" src="" alt="">
+        <p class="h3" id="dep"></p>
+        <div class="d-flex  mx-auto justify-content-around pt-4 col-lg-8 col-md-8 col-sm-8  h5 " id="humco">
+        <div class=" col-4">
+        <label for="">feels_like</label>
+        <p class="pt-4" id="fee"></p>
+            </div>
+        <div class="col-4">
+            <label for="">humidity</label>
+        <p class="pt-4" id="Hum"></p>
+        </div>
+        <div class="">
+            <label for="col-4">winds</label>
+        <p class="pt-4" id="win"></p>
+        </div>
+        </div>
+    </section>
+    <script>
+
+            async function getLocation(){
+           
+    const url = "https://api.openweathermap.org/data/2.5/weather?q=ogbomoso&appid=188d5cd139b7b3cab180731e16a7de34&units=metric"
+    let response =await fetch (url);
+    var show = await response.json();
+    console.log(show);
+    document.getElementById("weather").innerText= show.main.temp.toFixed()+" °C"
+    country.innerText=show.sys.country
+    named.innerText=show.name
+    dep.innerText=show.weather[0].description
+    Hum.innerText=show.main.humidity + " %"
+    fee.innerText=show.main.feels_like + " °C"
+    win.innerText=show.wind.speed + " MPH"
+    dep2.src = `https://openweathermap.org/img/wn/${show.weather[0].icon}@2x.png`
+    console.log(show.weather[0].description);
+}
+            
+        
+        async function getData(){
+            var place = getplace.value;
+    const api=""
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=188d5cd139b7b3cab180731e16a7de34&units=metric`
+    let response =await fetch (url);
+    var show = await response.json();
+    console.log(show);
+    document.getElementById("weather").innerText= show.main.temp.toFixed()+" °C"
+    country.innerText=show.sys.country
+    named.innerText=show.name
+    dep.innerText=show.weather[0].description
+    Hum.innerText=show.main.humidity + " %"
+    fee.innerText=show.main.feels_like + " °C"
+    win.innerText=show.wind.speed + " MPH"
+    dep2.src = `https://openweathermap.org/img/wn/${show.weather[0].icon}@2x.png`
+    console.log(show.weather[0].description);
+}
+    </script>
+</body>
+</html>
